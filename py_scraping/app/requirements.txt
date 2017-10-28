@@ -1,0 +1,12 @@
+requests
+selenium
+beautifulsoup4
+numpy
+pandas
+airflow
+airflow[postgres]
+psycopg2
+airflow[celery]
+cryptography
+airflow[crypto]
+airflow[password]

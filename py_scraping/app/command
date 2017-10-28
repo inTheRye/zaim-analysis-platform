@@ -1,0 +1,84 @@
+curl -XPUT http://elasticsearch:9200/zaim -d '
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "ja-normal-analyzer": {
+          "type": "custom",
+          "tokenizer": "ja-normal-tokenizer"
+        },
+        "ja-search-analyzer": {
+          "type": "custom",
+          "tokenizer": "ja-search-tokenizer"
+        },
+        "ja-extended-analyzer": {
+          "type": "custom",
+          "tokenizer": "ja-extended-tokenizer"
+        }
+      },
+      "tokenizer": {
+        "ja-normal-tokenizer": {
+          "type": "kuromoji_tokenizer",
+          "mode": "normal"
+        },
+        "ja-search-tokenizer": {
+          "type": "kuromoji_tokenizer",
+          "mode": "search"
+        },
+        "ja-extended-tokenizer": {
+          "type": "kuromoji_tokenizer",
+          "mode": "extended"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "scrape-money": {
+      "properties": {
+        "date": {
+          "format": "yyyy-MM-dd",
+          "type": "date"
+        },
+        "amount": {
+          "type": "long"
+        },
+        "name": {
+          "type": "text",
+          "fields": {
+            "raw": { 
+              "type":  "keyword"
+            }
+          }
+        },
+        "comment": {
+          "type": "text",
+          "fields": {
+            "raw": { 
+              "type":  "keyword"
+            }
+          }
+        },
+        "place": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "from_account": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "to_account": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "genre": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "category": {
+          "type": "string",
+          "index": "not_analyzed"
+        }
+      }
+    }
+  }
+}'

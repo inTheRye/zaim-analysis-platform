@@ -1,0 +1,4 @@
+./py_scrape/app/data.json
+./py_scrape/app/config.yml
+./py_scrape/app/ghostdriver.log
+./py_scrape/dags/__pycache__/
