@@ -8,9 +8,9 @@ Zaim.net の家計簿データを定期的にスクレイプしてきて、elast
 
 自身のZaim.netのID,PASS,スクレイピングしたい家計簿データの開始日を書き込んだconfig.ymlファイルを作り、dockerコンテナを起動する。
 ```{bash}
-$ echo 'ID: "your_user_id"' > py_scraping/config.yml
-$ echo 'PASS: "your_password"' >> py_scraping/config.yml
-$ echo 'START_DATE: "2016-1-1"' >> py_scraping/config.yml
+$ echo 'ID: "your_user_id"' > py_scraping/app/config.yml
+$ echo 'PASS: "your_password"' >> py_scraping/app/config.yml
+$ echo 'START_DATE: "2016-1-1"' >> py_scraping/app/config.yml
 $ docker-compose up -d
 $ docker-compose logs
 ```
