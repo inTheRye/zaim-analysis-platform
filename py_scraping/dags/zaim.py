@@ -4,7 +4,7 @@ from datetime import datetime
 
 default_args = {
     'owner': 'root',
-    'start_date': datetime(2017, 10, 23, 00, 00, 00)
+    'start_date': datetime.today(),
 }
 
 dag = DAG('zaim', default_args=default_args, schedule_interval='00 00 * * *')
