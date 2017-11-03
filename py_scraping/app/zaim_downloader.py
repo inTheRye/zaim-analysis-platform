@@ -137,8 +137,7 @@ class ZaimDownLoader(object):
                     amount = amount.replace(',', '')
                     cols_rev.append(amount)  # amount
                 else:
-                    cols_rev.append(ele.text.strip())  # else
-            #cols = [ele.text.strip() for ele in cols]
+                    cols_rev.append(ele.text.strip())
             data.append([ele for ele in cols_rev])
         return data
 
