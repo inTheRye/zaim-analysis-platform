@@ -1,17 +1,13 @@
 #!/usr/bin/env python
-import sys
-import json
 import yaml
 import os
 import re
 import time
-import requests
-import numpy as np
 import pandas as pd
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from dateutil.relativedelta import relativedelta
-from datetime import date, datetime
+from datetime import date
 
 
 class ZaimDownLoader(object):

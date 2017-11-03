@@ -1,7 +1,5 @@
-requests
 selenium
 beautifulsoup4
-numpy
 pandas
 airflow
 airflow[postgres]
