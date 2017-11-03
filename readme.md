@@ -2,7 +2,7 @@
 
 Zaim.net の家計簿データを定期的にスクレイプしてきて、elasticsearchに突っ込んで、kibanaで描画するためのdockerプラットフォームです。
 
-![system_config](system_config.png)
+![system_config](images/system_config.png)
 
 ## Getting Started
 
@@ -13,6 +13,14 @@ $ echo "PASS: your_password" >> py_scraping/config.yml
 $ docker-compose up -d
 $ docker-compose logs
 ```
+
+http://localhost:8080 でairflowにアクセス。
+
+![system_config](images/airflow_image.png)
+
+http://localhost:5601 でkibanaにアクセス。
+
+![system_config](images/kibana_image.png)
 
 ## License
 
