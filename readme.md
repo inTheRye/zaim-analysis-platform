@@ -6,10 +6,11 @@ Zaim.net の家計簿データを定期的にスクレイプしてきて、elast
 
 ## Getting Started
 
-自身のZaim.netのID,PASSを書き込んだconfig.ymlファイルを作り、dockerコンテナを起動。
+自身のZaim.netのID,PASS,スクレイピングしたい家計簿データの開始日を書き込んだconfig.ymlファイルを作り、dockerコンテナを起動する。
 ```{bash}
-$ echo "ID: your_user_id" > py_scraping/config.yml
-$ echo "PASS: your_password" >> py_scraping/config.yml
+$ echo 'ID: "your_user_id"' > py_scraping/config.yml
+$ echo 'PASS: "your_password"' >> py_scraping/config.yml
+$ echo 'START_DATE: "2016-1-1"' >> py_scraping/config.yml
 $ docker-compose up -d
 $ docker-compose logs
 ```
@@ -19,6 +20,7 @@ http://localhost:8080 でairflowにアクセス。
 ![system_config](images/airflow_image.png)
 
 http://localhost:5601 でkibanaにアクセス。
+zaim* の Index Pattern を作って、あとは適当にビジュアライズする。
 
 ![system_config](images/kibana_image.png)
 

@@ -7,16 +7,17 @@ import pandas as pd
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from dateutil.relativedelta import relativedelta
-from datetime import date
+from datetime import date, datetime
 
 
 class ZaimDownLoader(object):
 
-    def __init__(self, id_, pass_):
+    def __init__(self, id_, pass_, start_date_str):
         self.url = 'https://auth.zaim.net'
         self.id_ = id_
         self.pass_ = pass_
         self.driver = webdriver.PhantomJS()
+        self.start_date_str = start_date_str
 
     def output_zaim_datafile(self, output_file):
 
@@ -25,7 +26,8 @@ class ZaimDownLoader(object):
 
         df_rev = pd.DataFrame()
         end_date = date.today()
-        start_date = date(2016, 1, 1)
+        d = datetime.strptime(self.start_date_str, '%Y-%m-%d')
+        start_date = date(d.year, d.month, d.day)
 
         for single_date in self.__monthrange(start_date, end_date):
             YYYYmm = single_date.strftime("%Y%m")
@@ -147,8 +149,9 @@ def main():
 
     ID = conf['ID']
     PASS = conf['PASS']
+    START_DATE = conf['START_DATE']
 
-    zdl = ZaimDownLoader(ID, PASS)
+    zdl = ZaimDownLoader(ID, PASS, START_DATE)
     zdl.output_zaim_datafile("data.json")
 
 if __name__ == '__main__':
